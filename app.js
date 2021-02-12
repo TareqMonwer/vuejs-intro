@@ -21,4 +21,20 @@ const app = Vue.createApp({
     }
 })
 
+const users = Vue.createApp({
+    data() {
+        return {
+            users: null
+        }
+    },
+    mounted() {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(data => (this.users = data))
+    }
+})
+
+
+// mounts
 app.mount('#app')
+users.mount('#users')

@@ -22,11 +22,22 @@
             </button>
         </div>
         <div v-else><h4>Books are Private</h4></div>
-        
+
         <button @click="toggleBookVisibility">
             <span v-if="bookVisibility=='public'">Hide Books</span>
             <span v-else>Show Books</span>
         </button>
+    </div>
+
+    <h1 style="text-align: center;">
+        Users Listing
+    </h1>
+    <div id="users">
+        <ul>
+            <li v-for="user in users">
+                {{ user.username }}
+            </li>
+        </ul>
     </div>
     
     <script src="app.js"></script>
