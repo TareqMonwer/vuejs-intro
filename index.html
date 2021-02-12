@@ -48,6 +48,16 @@
                 </a>
             </li>
         </ul>
+
+        <h1 style="text-align: center;">
+            Favorite Posts
+        </h1>
+
+        <ul>
+            <li v-for="post in favPosts" @click="toggleFav(post.id)">
+                {{ post.title }}
+            </li>
+        </ul>
     </div>
     
     <script src="app.js"></script>

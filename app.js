@@ -24,7 +24,17 @@ const app = Vue.createApp({
 const users = Vue.createApp({
     data() {
         return {
-            users: null
+            users: null,
+            posts: [
+                { id: 1, isFav: true, title: 'Testing' },
+                { id: 2, isFav: false, title: 'Developing' },
+                { id: 3, isFav: true, title: 'Coding' },
+                { id: 4, isFav: false, title: 'Deploying' },
+                { id: 11, isFav: true, title: 'Testing' },
+                { id: 22, isFav: false, title: 'Developing' },
+                { id: 13, isFav: true, title: 'Coding' },
+                { id: 24, isFav: false, title: 'Deploying' }
+            ]
         }
     },
     methods: {
@@ -39,12 +49,21 @@ const users = Vue.createApp({
                     event.target.classList.add('even');
                 }
             }
+        },
+        toggleFav(postID) {
+            let post = this.posts.find(post => post.id === postID)
+            post.isFav = !post.isFav;
         }
     },
     mounted() {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
             .then(data => (this.users = data))
+    },
+    computed: {
+        favPosts() {
+            return this.posts.filter(post => post.isFav)
+        }
     }
 })
 
