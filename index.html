@@ -7,10 +7,18 @@
     <script src="https://unpkg.com/vue@3.0.2"></script>
 </head>
 <body>
-    <h1>Hello, Vue :)</h1>
+    <h1 style="text-align: center;">Vuejs Tutorial</h1>
     
     <div id="app">
         <h3>{{bookName}}</h3>
+        <h4>Price: ${{ price }}</h4>
+
+        <button @click="++price">
+            Increase Price
+        </button>
+        <button @click="changeBook('Eloquent JS')">
+            Change Book
+        </button>
     </div>
     
     <script src="app.js"></script>
