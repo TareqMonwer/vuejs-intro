@@ -27,6 +27,11 @@ const users = Vue.createApp({
             users: null
         }
     },
+    methods: {
+        getUserUrl(userID) {
+            return `https://jsonplaceholder.typicode.com/users/${userID}`
+        }
+    },
     mounted() {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())

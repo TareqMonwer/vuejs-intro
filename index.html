@@ -35,7 +35,11 @@
     <div id="users">
         <ul>
             <li v-for="user in users">
-                {{ user.username }}
+                <a v-bind:href="getUserUrl(user.id)"
+                target="_blank"
+                :title="user.username">
+                    {{ user.username }}
+                </a>
             </li>
         </ul>
     </div>
