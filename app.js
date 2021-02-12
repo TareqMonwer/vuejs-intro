@@ -30,6 +30,15 @@ const users = Vue.createApp({
     methods: {
         getUserUrl(userID) {
             return `https://jsonplaceholder.typicode.com/users/${userID}`
+        },
+        toggleEvenClass(event, userID) {
+            if (userID % 2 == 0) {
+                if (event.target.classList.contains('even')) {
+                    event.target.classList.remove('even')
+                } else {
+                    event.target.classList.add('even');
+                }
+            }
         }
     },
     mounted() {

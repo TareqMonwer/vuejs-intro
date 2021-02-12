@@ -39,7 +39,8 @@
     <div id="users">
         <ul>
             <li v-for="user in users"
-            :class="{ even: user.id % 2 == 0 }">
+            :class="{ even: user.id % 2 == 0 }"
+            @click="toggleEvenClass($event, user.id)">
                 <a v-bind:href="getUserUrl(user.id)"
                 target="_blank"
                 :title="user.username">
