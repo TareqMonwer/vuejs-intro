@@ -10,14 +10,22 @@
     <h1 style="text-align: center;">Vuejs Tutorial</h1>
     
     <div id="app">
-        <h3>{{bookName}}</h3>
-        <h4>Price: ${{ price }}</h4>
+        <div v-if="bookVisibility=='public'">
+            <h3>{{bookName}}</h3>
+            <h4>Price: ${{ price }}</h4>
 
-        <button @click="++price">
-            Increase Price
-        </button>
-        <button @click="changeBook('Eloquent JS')">
-            Change Book
+            <button @click="++price">
+                Increase Price
+            </button>
+            <button @click="changeBook('Eloquent JS')">
+                Change Book
+            </button>
+        </div>
+        <div v-else><h4>Books are Private</h4></div>
+        
+        <button @click="toggleBookVisibility">
+            <span v-if="bookVisibility=='public'">Hide Books</span>
+            <span v-else>Show Books</span>
         </button>
     </div>
     
